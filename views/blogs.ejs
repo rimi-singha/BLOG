@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+    <title><%= blog.title %></title>
+</head>
+
+<body>
+
+    <%- include('./partials/nav') %>
+
+    <div class="container my-4">
+
+        <div class="card" style="width: 30rem;">
+
+            <img
+                src="<%= blog.coverImageURL %>"
+                class="card-img-top"
+                alt="Blog Image"
+            >
+
+            <div class="card-body">
+
+                <h2 class="card-title">
+                    <%= blog.title %>
+                </h2>
+
+                <p class="card-text">
+                    <%= blog.body %>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="container mt-3">
+
+        <h1>Comments <%= comments.length %></h1>
+
+       <form action="/blog/comment/<%= blog._id %>" method="POST"></form>
+
+            <div class="mb-3">
+
+                <input
+                    type="text"
+                    class="form-control"
+                    name="content"
+                    placeholder="Enter your comment"
+                    required
+                >
+
+                <button
+                    class="btn btn-sm btn-primary mt-2"
+                    type="submit"
+                >
+                    Add
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <div class="mt-3">
+
+            <% comments.forEach(comment => { %>
+
+                <div class="border rounded p-2 mb-2">
+
+                    <p class="mb-0">
+                        <%= comment.content %>
+                    </p>
+
+                </div>
+
+            <% }) %>
+
+        </div>
+
+    </div>
+
+
+    <%- include('./partials/script') %>
+
+</body>
+
+</html>

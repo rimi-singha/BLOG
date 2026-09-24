@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+    <title>Sign In</title>
+</head>
+
+<body>
+
+    <%- include('./partials/nav', {
+        error: typeof error !== 'undefined' ? error : null
+    }) %>
+
+    <div class="container mt-5" style="max-width: 500px;">
+
+        <h2 class="mb-4 text-center">Sign In</h2>
+
+        <form action="/user/signin" method="POST">
+
+            <div class="mb-3">
+                <label for="email" class="form-label">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+                <label for="password" class="form-label">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">
+                Sign In
+            </button>
+
+        </form>
+
+    </div>
+
+    <%- include('./partials/script') %>
+
+</body>
+</html>
