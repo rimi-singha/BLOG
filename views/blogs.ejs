@@ -25,7 +25,8 @@
                     </h2>
                     <p class="text-muted">
                         By <strong>
-                            <%= blog.createdBy.fullName %>
+                            <%= blog.createdBy ? blog.createdBy.fullName : "Unknown User" %>
+                          
                         </strong>
                     </p>
 
@@ -67,7 +68,7 @@
                     <div class="border rounded p-2 mb-2">
 
                         <strong>
-                            <%= comment.createdBy.fullName %>
+                            <%= comment.createdBy ? comment.createdBy.fullName : "Unknown User" %>
                         </strong>
 
                         <p class="mb-0">
