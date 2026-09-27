@@ -40,7 +40,7 @@ const userSchema = new Schema(
 );
 
 
-//Hash pass before using
+//hash pass before saving
 userSchema.pre("save", async function () {
 
     const user = this;
@@ -58,7 +58,7 @@ userSchema.pre("save", async function () {
 });
 
 
-//CHECK PASSWORD DURING SIGN IN
+//check pass during sign in
 userSchema.static("matchPasswordAndCreateToken", async function (email, password) {
 
     const user = await this.findOne({ email });
