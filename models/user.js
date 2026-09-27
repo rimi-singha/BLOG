@@ -40,7 +40,7 @@ const userSchema = new Schema(
 );
 
 
-//HASH PASSWORD BEFORE SAVING
+//Hash pass before using
 userSchema.pre("save", async function () {
 
     const user = this;
